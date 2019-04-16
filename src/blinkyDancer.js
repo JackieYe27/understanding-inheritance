@@ -4,17 +4,16 @@ var BlinkyDancer = function(top, left, timeBetweenSteps) {
   // so we must keep a copy of the old version of this function
 
   var oldStep = this.step;
-  
-  this.step = function(oldStep, timeBetweenSteps) {
+  this.step = function() {
     // call the old version of step at the beginning of any call to this new version of step
-    oldStep(timeBetweenSteps);
+    oldStep();
     // toggle() is a jQuery method to show/hide the <span> tag.
     // See http://api.jquery.com/category/effects/ for this and
     // other effects you can use on a jQuery-wrapped html tag.
     this.$node.toggle();
+    // Bind makes sure the setTimeout keeps the reference to the 
+    // instance for future calls of step
+    setTimeout(this.step.bind(this), timeBetweenSteps);
   };
-  
-  this.step(oldStep, timeBetweenSteps);
+  this.step();
 };
-
-// BlinkyDancer.prototype.
