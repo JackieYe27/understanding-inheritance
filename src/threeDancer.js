@@ -4,10 +4,26 @@ var threePartyStarter = function() {
   var renderer = new THREE.WebGLRenderer();
   renderer.setSize(window.innerWidth, window.innerHeight/6);
   document.body.appendChild(renderer.domElement);
-  
-  var geometry = new THREE.BoxGeometry(1, 1, 1);
-  var material = new THREE.MeshBasicMaterial({
-    color: 0x00ff00
+
+  var light = new THREE.PointLight(0xffffff, 2, 100);
+  light.position.set(-2, 2, 0);
+  scene.add(light);
+  var lightTwo = new THREE.PointLight(0xffffff, 2, 100);
+  lightTwo.position.set(3, 1, 2);
+  scene.add(lightTwo);
+
+  var bgPlane = new THREE.PlaneGeometry(100, 100, 16);
+  var bgMat = new THREE.MeshStandardMaterial({
+    color: 0xf1f442,
+    roughness: 1
+  });
+  var plane = new THREE.Mesh(bgPlane, bgMat);
+  scene.add(plane);
+
+  var geometry = new THREE.BoxGeometry(1.5, 1.5, 1.5);
+  var material = new THREE.MeshStandardMaterial({
+    color: 0x00ff00,
+    roughness: 0.1
   });
   var cube = new THREE.Mesh(geometry, material);
   scene.add(cube);
