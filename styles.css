@@ -11,17 +11,31 @@ body{
 body, a:link, a:visited, a:active{
   color: lightblue;
 }
-.title, .addDancerButton{
-  padding:5px 12px;
-  float:right;
+
+a:hover{
+  background-color: rgba(0, 0, 0, 0.4);
 }
-.topbar{
-  height:32px;
-  background-color: #555;
+.button{
+  font-family: 'Cute Font', monospace;
+  font-size: 22px;
+  padding:15px 12px;
+  text-decoration: none;
+}
+.deleteButton{
+  color: red;
 }
 .title{
-  background-color: #777;
+  font-family: 'Cute Font', monospace;
+  font-size: 30px;
+  font-weight: 200;
 }
+.topbar{
+  display: flex;
+  align-content: space-between;
+  background-color: #555;
+  box-shadow: inset 0px -5px 15px -3px #a0e5ff;
+}
+
 .dancer{
   border:10px solid red;
   border-radius:10px;
