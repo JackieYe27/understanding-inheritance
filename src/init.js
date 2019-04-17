@@ -1,6 +1,22 @@
 $(document).ready(function() {
   window.dancers = [];
 
+  $('.goAway').on('click', function(event) {
+    _.each(window.dancers, function(dancer) {
+      $(dancer.$node).animate ({
+        top: Math.clamp($("body").height() * Math.random(), 100, window.innerHeight - 150)
+      }, 2000);
+    });
+  });
+
+  $('.lineup').on('click', function(e) {
+    _.each(window.dancers, function(dancer) {  
+      $(dancer.$node).animate ({
+        top: 100
+      }, 3000);
+    });
+  });
+
   $('.deleteButton').on('click', function(event) {
     _.each(window.dancers, function(dancer) {  
       $(dancer.$node).remove();
@@ -29,9 +45,5 @@ $(document).ready(function() {
   });
 });
 
-(function() {
-  Math.clamp = function(a,b,c){
-  return Math.max(b,Math.min(c,a));
-  }
-})();
+
 
