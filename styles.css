@@ -47,3 +47,7 @@ a:hover{
   width: 100px;
   position: absolute;
 }
+.trashCan {
+  height: 100px;
+  position: absolute;
+}

@@ -15,8 +15,8 @@ Dancer.prototype.step = function() {
 
 Dancer.prototype.setPosition = function(top, left) {
   var styleSettings = {
-    top: top,
-    left: left
+    top: Math.clamp(top, 100, window.innerHeight - 150),
+    left: Math.clamp(left, 40, window.innerWidth - 40)
   };
   this.$node.css(styleSettings);
 };
